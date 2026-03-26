@@ -26,6 +26,17 @@ a,
   transition: all 300ms ease;
 }
 
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid rgb(53, 53, 53);
+  outline-offset: 2px;
+}
+
+html.dark-mode a:focus-visible,
+html.dark-mode .btn:focus-visible {
+  outline: 2px solid rgb(100, 180, 255);
+}
+
 /* DESKTOP NAV */
 
 nav,
@@ -204,6 +215,20 @@ section {
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
+}
+
+#socials-container a {
+  display: inline-block;
+  transition: all 300ms ease;
+}
+
+#socials-container a:hover {
+  transform: scale(1.1);
+}
+
+#socials-container .icon {
+  cursor: pointer;
+  height: 2rem;
 }
 
 /* ICONS */
@@ -429,4 +454,137 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+/* SDR METRICS STYLING */
+
+#experience .details-container:last-child article {
+  background: rgba(53, 53, 53, 0.05);
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all 300ms ease;
+}
+
+#experience .details-container:last-child article:hover {
+  background: rgba(53, 53, 53, 0.1);
+  transform: translateY(-2px);
+}
+
+#experience .details-container:last-child h3 {
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+/* PROJECT DESCRIPTIONS */
+
+.project-description {
+  font-size: 0.95rem;
+  color: rgb(85, 85, 85);
+  margin: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.project-description strong {
+  color: rgb(53, 53, 53);
+  font-weight: 600;
+}
+
+/* DARK MODE STYLING */
+
+:root {
+  --bg-primary: rgb(255, 255, 255);
+  --bg-secondary: rgb(250, 250, 250);
+  --text-primary: rgb(0, 0, 0);
+  --text-secondary: rgb(85, 85, 85);
+  --border-color: rgb(163, 163, 163);
+  --button-bg: rgb(53, 53, 53);
+  --button-hover: rgb(0, 0, 0);
+}
+
+html.dark-mode {
+  --bg-primary: rgb(20, 20, 20);
+  --bg-secondary: rgb(35, 35, 35);
+  --text-primary: rgb(240, 240, 240);
+  --text-secondary: rgb(180, 180, 180);
+  --border-color: rgb(100, 100, 100);
+  --button-bg: rgb(200, 200, 200);
+  --button-hover: rgb(220, 220, 220);
+}
+
+html.dark-mode body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html.dark-mode p {
+  color: var(--text-secondary);
+}
+
+html.dark-mode a {
+  color: rgb(100, 180, 255);
+}
+
+html.dark-mode a:hover {
+  color: rgb(150, 200, 255);
+}
+
+html.dark-mode nav {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .logo {
+  color: var(--text-primary);
+}
+
+html.dark-mode section {
+  background-color: transparent;
+}
+
+html.dark-mode .details-container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .color-container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .btn-color-1 {
+  background-color: var(--button-bg);
+  color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .btn-color-1:hover {
+  background-color: var(--button-hover);
+}
+
+html.dark-mode .btn-color-2 {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+html.dark-mode .btn-color-2:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+html.dark-mode .menu-links {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+html.dark-mode .contact-info-upper-container {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+html.dark-mode footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
 }
