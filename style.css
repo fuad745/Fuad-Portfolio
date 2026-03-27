@@ -315,6 +315,23 @@ section {
   position: relative;
 }
 
+#about .section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+#about .section__pic-container {
+  flex: 1 1 40%;
+  max-width: 420px;
+}
+
+#about .about-details-container {
+  flex: 1 1 50%;
+}
+
 .about-containers {
   gap: 2rem;
   margin-bottom: 2rem;
