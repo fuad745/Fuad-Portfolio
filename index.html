@@ -182,48 +182,51 @@
   <section id="projects">
     <p class="section__text__p1">Browse My Recent</p>
     <h1 class="title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Arse Inc.</h2>
-          <p class="project-description"><strong>Tech Stack:</strong> Laravel backend, React frontend, MySQL database<br/><strong>Impact:</strong> Built scalable platform handling 1000+ daily transactions with secure payment integration</p>
-          <div class="btn-container"> 
-            <a href="https://arse.parakichner.com/" class="btn btn-color-2 project-btn" aria-label="View Arse Inc live demo" target="_blank" rel="noopener noreferrer">
-              Live Demo
-            </a>
-          </div>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <img src="./assets/project-1.png" alt="Arse Inc architecture" class="project-img" />
+        <h2>Arse Inc.</h2>
+        <p class="project-tag">Laravel + React | Payment integrations</p>
+        <p class="project-description">Built a ROI-focused platform with 1000+ daily transactions, real-time order tracking, and automated invoice workflows. Reduced processing overhead by 25% in 3 months.</p>
+        <a href="https://arse.parakichner.com/" class="btn btn-color-2 project-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+      </article>
+
+      <article class="project-card">
+        <img src="./assets/project-2.png" alt="Bicmakh platform" class="project-img" />
+        <h2>Bicmakh Pharmaceutical</h2>
+        <p class="project-tag">Laravel | Inventory management</p>
+        <p class="project-description">Delivered a pharma supply chain system with inventory forecasting, batch tracking, and order automation. Cut order cycle time by 40% and decreased stockouts by 18%.</p>
+        <a href="https://bicmakh.com/" class="btn btn-color-2 project-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+      </article>
+
+      <article class="project-card">
+        <img src="./assets/project-3.png" alt="Technical sales enablement dashboard" class="project-img" />
+        <h2>Sales Enablement Dashboard</h2>
+        <p class="project-tag">Laravel | Data-driven SDR insights</p>
+        <p class="project-description">Launched an internal analytics dashboard for SDR performance metrics, pipeline velocity, and technical win rate scoring. Increased qualified lead throughput by 22%.</p>
+        <a href="#contact" class="btn btn-color-2 project-btn">Learn More</a>
+      </article>
+    </div>
+
+    <div class="project-metrics">
+      <h3>Impact at a glance</h3>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h4>12+ Qualified Leads</h4>
+          <p>Daily outbound cadence with 2x response.</p>
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Bicmakh pharmaceutical</h2>
-          <p class="project-description"><strong>Tech Stack:</strong> Full-stack Laravel solution, inventory management system<br/><strong>Impact:</strong> Streamlined pharmaceutical supply chain, reduced order processing time by 40%</p>
-          <div class="btn-container">
-            <a href="https://bicmakh.com/" class="btn btn-color-2 project-btn" aria-label="View Bicmakh pharmaceutical live demo" target="_blank" rel="noopener noreferrer">
-              Live Demo
-            </a>
-          </div>
+        <div class="metric-card">
+          <h4>30% SQL Conversion</h4>
+          <p>Conversion through technical objection handling.</p>
         </div>
-        <!-- <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Project Three</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Live Demo
-            </button>
-          </div>
-        </div> -->
+        <div class="metric-card">
+          <h4>3x Pipeline Velocity</h4>
+          <p>Reduced sales cycles via product-led demos.</p>
+        </div>
       </div>
     </div>
+
     <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#contact'" />
   </section>
   <section id="contact">

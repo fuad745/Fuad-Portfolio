@@ -424,26 +424,101 @@ article .icon {
   position: relative;
 }
 
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+.project-card {
+  background: white;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 1.5rem;
+  box-shadow: 0 7px 24px rgba(0, 0, 0, 0.10);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.project-title {
-  margin: 1rem;
-  color: black;
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+.project-card img.project-img {
+  border-radius: 1rem;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
+
+.project-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  color: rgb(21, 21, 21);
+}
+
+.project-tag {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgb(90, 90, 90);
+  margin-bottom: 0.75rem;
+}
+
+.project-description {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgb(68, 68, 68);
+  flex-grow: 1;
+}
+
+.project-card .btn {
+  margin-top: auto;
+}
+
+.project-metrics {
+  margin-top: 2rem;
+  background: rgb(245, 248, 255);
+  border: 1px solid rgb(205, 216, 234);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.project-metrics h3 {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.metric-card {
+  background: white;
+  padding: 1rem;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.metric-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.metric-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgb(80, 80, 80);
+}
+
 
 /* CONTACT */
 
