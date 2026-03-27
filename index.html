@@ -6,233 +6,174 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fuad Ahmed</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>f</text></svg>" type="image/svg+xml">
-
 </head>
 
-<body>
-  <nav id="desktop-nav">
-    <div class="logo">F.A</div>
-    <div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div class="text-2xl font-bold tracking-tight">F.A</div>
+      <nav class="hidden md:flex gap-8 text-lg font-medium">
+        <a href="#about" class="text-slate-700 hover:text-slate-900">About</a>
+        <a href="#experience" class="text-slate-700 hover:text-slate-900">Experience</a>
+        <a href="#projects" class="text-slate-700 hover:text-slate-900">Projects</a>
+        <a href="#contact" class="text-slate-700 hover:text-slate-900">Contact</a>
+      </nav>
+      <button id="mobile-menu-btn" onclick="toggleMenu()" class="md:hidden rounded-md border border-slate-300 p-2 text-slate-700 hover:bg-slate-100" aria-label="Open menu">
+        <span class="block h-0.5 w-5 bg-slate-700 mb-1"></span>
+        <span class="block h-0.5 w-5 bg-slate-700 mb-1"></span>
+        <span class="block h-0.5 w-5 bg-slate-700"></span>
+      </button>
     </div>
-  </nav>
-  <nav id="hamburger-nav">
-    <div class="logo">F.A</div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
+      <div class="space-y-1 px-4 py-3">
+        <a href="#about" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">About</a>
+        <a href="#experience" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Experience</a>
+        <a href="#projects" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Projects</a>
+        <a href="#contact" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Contact</a>
       </div>
     </div>
-  </nav>
-  <section id="profile">
-    <div class="section__pic-container">
-      <img src="./assets/profile-pic.png" alt="John Doe profile picture"
-        style="border-radius: 50%; width: 100%; height: auto; object-fit: cover;" />
-    </div>
-    <div class="section__text">
-      <p class="section__text__p1">Hello, I'm</p>
-      <h1 class="title">Fuad Ahmed</h1>
-      <p class="section__text__p2">Full-Stack Developer || Technical Sales & SDR</p>
-      <div class="btn-container">
-        <a href="./assets/fuad-resume.pdf" download class="btn btn-color-2" aria-label="Download resume PDF">
-          Download CV
-        </a>
-        <a href="#contact" class="btn btn-color-1" aria-label="Navigate to contact section">
-          Contact Info
-        </a>
-      </div>
-      <div id="socials-container">
-        <a href="https://www.linkedin.com/in/fuad-ahmed745/" aria-label="Visit LinkedIn profile" target="_blank" rel="noopener noreferrer">
-          <img src="./assets/linkedin.png" alt="LinkedIn profile icon" class="icon" />
-        </a>
-        <a href="https://github.com/fuad745" aria-label="Visit GitHub profile" target="_blank" rel="noopener noreferrer">
-          <img src="./assets/github.png" alt="GitHub profile icon" class="icon" />
-        </a>
-      </div>
-    </div>
-  </section>
-  <section id="about">
-    <p class="section__text__p1">Get To Know More</p>
-    <h1 class="title">About Me</h1>
-    <div class="section-container">
-      <div class="section__pic-container">
-        <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic" />
-      </div>
-      <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" />
-            <h3>Experience</h3>
-            <p>1+ years <br />Mobile || Web Development</p>
-          </div>
-          <div class="details-container">
-            <img src="./assets/education.png" alt="Education icon" class="icon" />
-            <h3>Education</h3>
-            <p>B.Sc. Bachelors Degree<br />St Mary's University College</p>
-          </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+    <section id="profile" class="grid gap-8 rounded-2xl bg-white p-6 shadow-sm md:grid-cols-2 md:p-10">
+      <div class="order-2 flex flex-col justify-center md:order-1">
+        <p class="text-sm font-semibold text-indigo-600">Hello, I'm</p>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Fuad Ahmed</h1>
+        <p class="mt-4 text-xl font-medium text-slate-700">Full-Stack Developer || Technical Sales & SDR</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="./assets/fuad-resume.pdf" download class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700" aria-label="Download resume PDF">Download CV</a>
+          <a href="#contact" class="inline-flex items-center rounded-full border border-indigo-500 bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-600" aria-label="Navigate to contact section">Contact Info</a>
         </div>
-        <div class="text-container">
-          <p>
-            I'm a technical operator with a revenue-first mindset—actively building my Sales/SDR career. My background in
-            Laravel/PHP and Flutter taught me how to solve complex customer problems and deliver measurable business outcomes.
-            Today I channel that skill into prospecting, pipeline management, and closing deals with precision.
-          </p>
-          <p>
-            I speak engineering fluently, which gives me an unfair competitive advantage: I resolve technical objections
-            faster than traditional salespeople, and I translate complex features into clear business value for decision-makers.
-            Backed by disciplined planning, consistent follow-up, and relentless execution—I hit my quota.
-          </p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.linkedin.com/in/fuad-ahmed745/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slate-700 hover:text-indigo-600" aria-label="Visit LinkedIn profile">
+            <img src="./assets/linkedin.png" alt="LinkedIn profile icon" class="h-6 w-6" />
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/fuad745" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slate-700 hover:text-indigo-600" aria-label="Visit GitHub profile">
+            <img src="./assets/github.png" alt="GitHub profile icon" class="h-6 w-6" />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
-    </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#experience'" />
-  </section>
-  <section id="experience">
-    <p class="section__text__p1">Core</p>
-    <h1 class="title">Competencies</h1>
-    <p style="text-align:center; color: rgb(85, 85, 85); margin-top: 0.5rem;">Blending full-stack engineering and technical sales foundations in a single role.</p>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <div class="details-container">
-          <h2 class="experience-sub-title">Technical Foundation</h2>
-          <div class="article-container">
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Full-Stack Laravel</h3>
-                <p>API design, backend architecture, production deployment</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Mobile Development</h3>
-                <p>Flutter cross-platform app development and deployment</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Customer Problem Solving</h3>
-                <p>Built solutions that directly aligned with customer business needs</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Technical Sales Enablement</h3>
-                <p>Translate complex tech into business value for decision-makers</p>
-              </div>
-            </article>
-          </div>
+      <div class="order-1 md:order-2 flex items-center justify-center">
+        <img src="./assets/profile-pic.png" alt="Fuad Ahmed profile picture" class="h-72 w-72 rounded-full object-cover shadow-lg" />
+      </div>
+    </section>
+
+    <section id="about" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
+      <p class="text-sm font-semibold text-indigo-600">Get To Know More</p>
+      <h2 class="mt-2 text-3xl font-bold text-slate-900">About Me</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="rounded-xl border border-slate-200 p-5">
+          <h3 class="text-lg font-semibold">Experience</h3>
+          <p class="mt-2 text-sm text-slate-600">1+ years in mobile and web development with a Sales/SDR mindset.</p>
         </div>
-        <div class="details-container">
-          <h2 class="experience-sub-title">SDR Performance Metrics</h2>
-          <div class="article-container">
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Lead Generation</h3>
-                <p>12+ qualified prospects per day through strategic outreach</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Meeting Conversion</h3>
-                <p>30%+ SQL conversion rate on initial outreach</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Pipeline Acceleration</h3>
-                <p>Resolved technical objections to advance deals</p>
-              </div>
-            </article>
-            <article>
-              <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-              <div>
-                <h3>Quota Attainment</h3>
-                <p>Consistent target achievement through disciplined execution</p>
-              </div>
-            </article>
+        <div class="rounded-xl border border-slate-200 p-5">
+          <h3 class="text-lg font-semibold">Education</h3>
+          <p class="mt-2 text-sm text-slate-600">B.Sc. from St Mary's University College.</p>
+        </div>
+      </div>
+      <p class="mt-6 text-slate-700">I’m a technical operator with a revenue-first mindset—actively building my Sales/SDR career. My background in Laravel/PHP and Flutter taught me how to solve complex customer problems and deliver measurable business outcomes. Today I channel that skill into prospecting, pipeline management, and closing deals with precision.</p>
+      <p class="mt-4 text-slate-700">I speak engineering fluently, which gives me an unfair competitive advantage: I resolve technical objections faster than traditional salespeople, and I translate complex features into clear business value for decision-makers. Backed by disciplined planning, consistent follow-up, and relentless execution—I hit my quota.</p>
+    </section>
+
+    <section id="experience" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
+      <p class="text-sm font-semibold text-indigo-600">Core</p>
+      <h2 class="mt-2 text-3xl font-bold text-slate-900">Competencies</h2>
+      <p class="mt-2 text-sm text-slate-600">Blending full-stack engineering and technical sales foundations in a single role.</p>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="rounded-xl border border-slate-200 p-5">
+          <h3 class="text-xl font-semibold">Technical Foundation</h3>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li>Full-Stack Laravel: API design, backend architecture, deployment</li>
+            <li>Mobile Flutter development: cross-platform apps</li>
+            <li>Customer problem solving: data-driven solutions</li>
+            <li>Technical sales enablement: translate tech into business value</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5">
+          <h3 class="text-xl font-semibold">SDR Performance</h3>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li>Lead generation: 12+ qualified prospects/day</li>
+            <li>Meeting conversion: 30%+ SQL rate</li>
+            <li>Pipeline acceleration: technical objections closed quickly</li>
+            <li>Quota attainment: consistent target achievement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
+      <p class="text-sm font-semibold text-indigo-600">Browse My Recent</p>
+      <h2 class="mt-2 text-3xl font-bold text-slate-900">Projects</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <article class="rounded-xl border border-slate-200 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <img src="./assets/project-1.png" alt="Arse Inc architecture" class="aspect-video w-full rounded-lg object-cover" />
+          <h3 class="mt-4 text-xl font-semibold text-slate-900">Arse Inc.</h3>
+          <p class="text-sm text-indigo-600">Laravel + React | Payment integrations</p>
+          <p class="mt-3 text-slate-700">Built a ROI-focused platform with 1000+ daily transactions, real-time order tracking, and automated invoice workflows. Reduced processing overhead by 25% in 3 months.</p>
+          <a href="https://arse.parakichner.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Live Demo</a>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <img src="./assets/project-2.png" alt="Bicmakh platform" class="aspect-video w-full rounded-lg object-cover" />
+          <h3 class="mt-4 text-xl font-semibold text-slate-900">Bicmakh Pharmaceutical</h3>
+          <p class="text-sm text-indigo-600">Laravel | Inventory management</p>
+          <p class="mt-3 text-slate-700">Delivered a pharma supply chain system with inventory forecasting, batch tracking, and order automation. Cut order cycle time by 40% and decreased stockouts by 18%.</p>
+          <a href="https://bicmakh.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Live Demo</a>
+        </article>
+      </div>
+      <div class="mt-8 rounded-xl bg-slate-100 p-6">
+        <h3 class="text-lg font-semibold text-slate-900">Impact at a glance</h3>
+        <div class="mt-4 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <p class="text-2xl font-bold text-indigo-600">12+</p>
+            <p class="text-sm text-slate-600">Qualified Leads / day</p>
+          </div>
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <p class="text-2xl font-bold text-indigo-600">30%</p>
+            <p class="text-sm text-slate-600">SQL Conversion</p>
+          </div>
+          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
+            <p class="text-2xl font-bold text-indigo-600">3x</p>
+            <p class="text-sm text-slate-600">Pipeline Velocity</p>
           </div>
         </div>
       </div>
-    </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#projects'" />
-  </section>
-  <section id="projects">
-    <p class="section__text__p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
+    </section>
 
-    <div class="projects-grid">
-      <article class="project-card">
-        <img src="./assets/project-1.png" alt="Arse Inc architecture" class="project-img" />
-        <h2>Arse Inc.</h2>
-        <p class="project-tag">Laravel + React | Payment integrations</p>
-        <p class="project-description">Built a ROI-focused platform with 1000+ daily transactions, real-time order tracking, and automated invoice workflows. Reduced processing overhead by 25% in 3 months.</p>
-        <a href="https://arse.parakichner.com/" class="btn btn-color-2 project-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-      </article>
-
-      <article class="project-card">
-        <img src="./assets/project-2.png" alt="Bicmakh platform" class="project-img" />
-        <h2>Bicmakh Pharmaceutical</h2>
-        <p class="project-tag">Laravel | Inventory management</p>
-        <p class="project-description">Delivered a pharma supply chain system with inventory forecasting, batch tracking, and order automation. Cut order cycle time by 40% and decreased stockouts by 18%.</p>
-        <a href="https://bicmakh.com/" class="btn btn-color-2 project-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
-      </article>
-
-    </div>
-
-    
-
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#contact'" />
-  </section>
-  <section id="contact">
-    <p class="section__text__p1">Get in Touch</p>
-    <h1 class="title">Contact Me</h1>
-    <div class="contact-info-upper-container">
-      <div class="contact-info-container">
-        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-        <p><a href="mailto:fuadahmedt@gmail.com" aria-label="Send email to Fuad Ahmed">fuadahmedt@gmail.com</a></p>
+    <section id="contact" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
+      <p class="text-sm font-semibold text-indigo-600">Get in Touch</p>
+      <h2 class="mt-2 text-3xl font-bold text-slate-900">Contact Me</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-xl border border-slate-200 p-5">
+          <p class="font-semibold text-slate-900">Email</p>
+          <a href="mailto:fuadahmedt@gmail.com" class="text-indigo-600">fuadahmedt@gmail.com</a>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5">
+          <p class="font-semibold text-slate-900">LinkedIn</p>
+          <a href="https://www.linkedin.com/in/fuad-ahmed745/" target="_blank" rel="noopener noreferrer" class="text-indigo-600">linkedin.com/in/fuad-ahmed745</a>
+        </div>
       </div>
-      <div class="contact-info-container">
-        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
-        <p><a href="https://www.linkedin.com/in/fuad-ahmed745/">LinkedIn</a></p>
-  </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-6">
+    <div class="mx-auto flex max-w-6xl items-center justify-center gap-6 px-4 text-sm text-slate-600 md:px-6">
+      <a href="#about" class="hover:text-indigo-600">About</a>
+      <a href="#experience" class="hover:text-indigo-600">Experience</a>
+      <a href="#projects" class="hover:text-indigo-600">Projects</a>
+      <a href="#contact" class="hover:text-indigo-600">Contact</a>
     </div>
-  </section>
-  <footer>
-    <nav>
-      <div class="nav-links-container">
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
   </footer>
-  <script src="script.js"></script>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
 </body>
 
 </html>
