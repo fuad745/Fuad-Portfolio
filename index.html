@@ -3,176 +3,367 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fuad Ahmed</title>
+  <title>Fuad Ahmed — Full-Stack Developer</title>
+  <meta name="description" content="Fuad Ahmed — full-stack developer in Addis Ababa building cross-platform apps in Flutter and the Laravel backends that power them." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22>ƒ</text></svg>" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>f</text></svg>" type="image/svg+xml">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0A0A0A',
+            paper: '#FAFAF7',
+            stone: { 500: '#57534E', 600: '#44403C' },
+            accent: '#B45309',      // warm amber — editorial, not slop
+            accentink: '#7C3E06',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    ::selection { background: #0A0A0A; color: #FAFAF7; }
+    .kicker { font-feature-settings: "tnum"; letter-spacing: 0.22em; }
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+    /* Animated link underline */
+    .link-underline { background-image: linear-gradient(#B45309,#B45309); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .3s ease; }
+    .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1.5px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #B45309; outline-offset: 3px; border-radius: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation: none !important; }
+    }
+  </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900">
-  <header class="sticky top-0 z-50 bg-white border-b border-slate-200">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-      <div class="text-2xl font-bold tracking-tight">F.A</div>
-      <nav class="hidden md:flex gap-8 text-lg font-medium">
-        <a href="#about" class="text-slate-700 hover:text-slate-900">About</a>
-        <a href="#experience" class="text-slate-700 hover:text-slate-900">Experience</a>
-        <a href="#projects" class="text-slate-700 hover:text-slate-900">Projects</a>
-        <a href="#contact" class="text-slate-700 hover:text-slate-900">Contact</a>
+<body class="bg-paper font-sans text-ink antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-6">
+      <a href="#top" class="font-display text-2xl font-bold tracking-tight" aria-label="Fuad Ahmed — home">Fuad&nbsp;Ahmed</a>
+      <nav class="hidden gap-9 font-mono text-[13px] uppercase tracking-widest text-stone-600 md:flex">
+        <a href="#work" class="link-underline hover:text-ink">Work</a>
+        <a href="#about" class="link-underline hover:text-ink">About</a>
+        <a href="#skills" class="link-underline hover:text-ink">Skills</a>
+        <a href="#contact" class="link-underline hover:text-ink">Contact</a>
       </nav>
-      <button id="mobile-menu-btn" onclick="toggleMenu()" class="md:hidden rounded-md border border-slate-300 p-2 text-slate-700 hover:bg-slate-100" aria-label="Open menu">
-        <span class="block h-0.5 w-5 bg-slate-700 mb-1"></span>
-        <span class="block h-0.5 w-5 bg-slate-700 mb-1"></span>
-        <span class="block h-0.5 w-5 bg-slate-700"></span>
+      <button id="menu-btn" onclick="toggleMenu()" class="md:hidden -mr-2 p-2 text-ink" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white md:hidden">
-      <div class="space-y-1 px-4 py-3">
-        <a href="#about" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">About</a>
-        <a href="#experience" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Experience</a>
-        <a href="#projects" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Projects</a>
-        <a href="#contact" onclick="toggleMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100">Contact</a>
-      </div>
+    <div id="mobile-menu" class="hidden border-t border-ink/10 bg-paper md:hidden">
+      <nav class="flex flex-col px-5 py-2 font-mono text-sm uppercase tracking-widest text-stone-600">
+        <a href="#work" onclick="toggleMenu()" class="border-b border-ink/5 py-3 hover:text-ink">Work</a>
+        <a href="#about" onclick="toggleMenu()" class="border-b border-ink/5 py-3 hover:text-ink">About</a>
+        <a href="#skills" onclick="toggleMenu()" class="border-b border-ink/5 py-3 hover:text-ink">Skills</a>
+        <a href="#contact" onclick="toggleMenu()" class="py-3 hover:text-ink">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-    <section id="profile" class="grid gap-8 rounded-2xl bg-white p-6 shadow-sm md:grid-cols-2 md:p-10">
-      <div class="order-2 flex flex-col justify-center md:order-1">
-        <p class="text-sm font-semibold text-indigo-600">Hello, I'm</p>
-        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Fuad Ahmed</h1>
-        <p class="mt-4 text-xl font-medium text-slate-700">Full-Stack Developer || Technical Sales & SDR</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="./assets/Fuad_Ahmed_CV.pdf" download class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700" aria-label="Download resume PDF">Download CV</a>
-          <a href="#contact" class="inline-flex items-center rounded-full border border-indigo-500 bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-600" aria-label="Navigate to contact section">Contact Info</a>
-        </div>
-        <div class="mt-6 flex gap-3">
-          <a href="https://www.linkedin.com/in/fuad-ahmed745/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slate-700 hover:text-indigo-600" aria-label="Visit LinkedIn profile">
-            <img src="./assets/linkedin.png" alt="LinkedIn profile icon" class="h-6 w-6" />
-            <span>LinkedIn</span>
+  <main id="top" class="mx-auto max-w-5xl px-5 sm:px-6">
+
+    <!-- Hero -->
+    <section class="grid items-center gap-10 py-16 sm:py-24 md:grid-cols-[1.4fr_1fr]">
+      <div class="reveal">
+        <p class="kicker mb-5 font-mono text-xs uppercase text-accent">Full-Stack Developer · Addis Ababa</p>
+        <h1 class="font-display text-[2.7rem] font-black leading-[1.02] tracking-tight sm:text-6xl">
+          I build apps<br />and the backends<br />that <span class="italic text-accent">power</span> them.
+        </h1>
+        <p class="mt-7 max-w-lg text-lg leading-relaxed text-stone-600">
+          Cross-platform mobile apps in <span class="font-medium text-ink">Flutter</span>, and the
+          <span class="font-medium text-ink">Laravel</span> APIs, admin panels and Telegram Mini Apps
+          behind them — shipped end to end.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#work" class="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition hover:bg-stone-600">
+            View selected work
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition group-hover:translate-x-0.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="https://github.com/fuad745" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slate-700 hover:text-indigo-600" aria-label="Visit GitHub profile">
-            <img src="./assets/github.png" alt="GitHub profile icon" class="h-6 w-6" />
-            <span>GitHub</span>
-          </a>
+          <a href="#contact" class="text-sm font-medium text-ink link-underline">Get in touch</a>
         </div>
       </div>
-      <div class="order-1 md:order-2 flex items-center justify-center">
-        <img src="./assets/profile-pic.png" alt="Fuad Ahmed profile picture" class="h-72 w-72 rounded-full object-cover shadow-lg" />
+      <div class="reveal order-first md:order-last">
+        <div class="relative mx-auto w-56 sm:w-64 md:w-full md:max-w-[280px]">
+          <div class="absolute -inset-3 -z-10 rounded-[1.6rem] border border-accent/30"></div>
+          <img src="./assets/profile.jpg" width="560" height="560"
+               alt="Portrait of Fuad Ahmed"
+               class="aspect-square w-full rounded-[1.4rem] object-cover shadow-xl ring-1 ring-ink/10" />
+        </div>
       </div>
     </section>
 
-    <section id="about" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
-      <p class="text-sm font-semibold text-indigo-600">Get To Know More</p>
-      <h2 class="mt-2 text-3xl font-bold text-slate-900">About Me</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        <div class="rounded-xl border border-slate-200 p-5">
-          <h3 class="text-lg font-semibold">Experience</h3>
-          <p class="mt-2 text-sm text-slate-600">1+ years in mobile and web development with a Sales/SDR mindset.</p>
-        </div>
-        <div class="rounded-xl border border-slate-200 p-5">
-          <h3 class="text-lg font-semibold">Education</h3>
-          <p class="mt-2 text-sm text-slate-600">B.Sc. from St Mary's University College.</p>
-        </div>
+    <!-- Marquee stat strip -->
+    <section class="reveal grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-4">
+      <div class="bg-paper px-5 py-6 text-center">
+        <p class="font-display text-3xl font-bold">Flutter</p>
+        <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-stone-500">Mobile · Web</p>
       </div>
-      <p class="mt-6 text-slate-700">I’m a technical operator with a revenue-first mindset—actively building my Sales/SDR career. My background in Laravel/PHP and Flutter taught me how to solve complex customer problems and deliver measurable business outcomes. Today I channel that skill into prospecting, pipeline management, and closing deals with precision.</p>
-      <p class="mt-4 text-slate-700">I speak engineering fluently, which gives me an unfair competitive advantage: I resolve technical objections faster than traditional salespeople, and I translate complex features into clear business value for decision-makers. Backed by disciplined planning, consistent follow-up, and relentless execution—I hit my quota.</p>
+      <div class="bg-paper px-5 py-6 text-center">
+        <p class="font-display text-3xl font-bold">Laravel</p>
+        <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-stone-500">API · Admin</p>
+      </div>
+      <div class="bg-paper px-5 py-6 text-center">
+        <p class="font-display text-3xl font-bold">10+</p>
+        <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-stone-500">Shipped apps</p>
+      </div>
+      <div class="bg-paper px-5 py-6 text-center">
+        <p class="font-display text-3xl font-bold">EN · አማ</p>
+        <p class="mt-1 font-mono text-[11px] uppercase tracking-widest text-stone-500">Bilingual builds</p>
+      </div>
     </section>
 
-    <section id="experience" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
-      <p class="text-sm font-semibold text-indigo-600">Core</p>
-      <h2 class="mt-2 text-3xl font-bold text-slate-900">Competencies</h2>
-      <p class="mt-2 text-sm text-slate-600">Blending full-stack engineering and technical sales foundations in a single role.</p>
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <div class="rounded-xl border border-slate-200 p-5">
-          <h3 class="text-xl font-semibold">Technical Foundation</h3>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li>Full-Stack Laravel: API design, backend architecture, deployment</li>
-            <li>Mobile Flutter development: cross-platform apps</li>
-            <li>Customer problem solving: data-driven solutions</li>
-            <li>Technical sales enablement: translate tech into business value</li>
+    <!-- Selected Work -->
+    <section id="work" class="scroll-mt-24 py-20 sm:py-28">
+      <div class="reveal mb-12 flex items-end justify-between border-b border-ink/15 pb-5">
+        <div>
+          <p class="kicker mb-2 font-mono text-xs uppercase text-accent">Selected Work</p>
+          <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Things I've built</h2>
+        </div>
+        <a href="https://github.com/fuad745" target="_blank" rel="noopener noreferrer" class="hidden font-mono text-xs uppercase tracking-widest text-stone-600 link-underline sm:inline">GitHub ↗</a>
+      </div>
+
+      <ol class="divide-y divide-ink/10">
+        <!-- Project 1 -->
+        <li class="reveal group grid gap-4 py-8 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-8">
+          <span class="font-mono text-sm text-stone-500">01</span>
+          <div>
+            <h3 class="font-display text-2xl font-bold">LuckyDraw</h3>
+            <p class="mt-2 max-w-xl text-stone-600">A full-stack Telegram Mini App lottery. Every wallet and prize runs in integer cents, and each draw is an atomic, row-locked transaction — a round can never be paid out twice. Bilingual English / አማርኛ, deploys on plain shared hosting.</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider text-stone-500">
+              <span class="rounded border border-ink/15 px-2 py-1">Laravel 13</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Livewire 4</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Telegram</span>
+              <span class="rounded border border-ink/15 px-2 py-1">MySQL</span>
+            </div>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 md:text-right">Mini App</span>
+        </li>
+
+        <!-- Project 2 -->
+        <li class="reveal group grid gap-4 py-8 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-8">
+          <span class="font-mono text-sm text-stone-500">02</span>
+          <div>
+            <h3 class="font-display text-2xl font-bold">Addis Condo Finder</h3>
+            <p class="mt-2 max-w-xl text-stone-600">A crowdsourced Flutter app for locating condominium blocks inside Addis Ababa's huge condo projects. Community submissions become "verified" after three independent confirmations; a Laravel + Filament panel handles moderation, trust scores and a contributor leaderboard.</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider text-stone-500">
+              <span class="rounded border border-ink/15 px-2 py-1">Flutter</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Laravel</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Filament</span>
+              <span class="rounded border border-ink/15 px-2 py-1">OpenStreetMap</span>
+            </div>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 md:text-right">Mobile + API</span>
+        </li>
+
+        <!-- Project 3 -->
+        <li class="reveal group grid gap-4 py-8 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-8">
+          <span class="font-mono text-sm text-stone-500">03</span>
+          <div>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-2xl font-bold">Arse Inc.</h3>
+              <a href="https://arse.parakichner.com/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-widest text-accent link-underline">Live ↗</a>
+            </div>
+            <p class="mt-2 max-w-xl text-stone-600">A business operations platform handling 1,000+ daily transactions with real-time order tracking and automated invoice workflows, cutting processing overhead by roughly a quarter.</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider text-stone-500">
+              <span class="rounded border border-ink/15 px-2 py-1">Laravel</span>
+              <span class="rounded border border-ink/15 px-2 py-1">React</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Payments</span>
+            </div>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 md:text-right">Web Platform</span>
+        </li>
+
+        <!-- Project 4 -->
+        <li class="reveal group grid gap-4 py-8 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-8">
+          <span class="font-mono text-sm text-stone-500">04</span>
+          <div>
+            <div class="flex flex-wrap items-baseline gap-x-3">
+              <h3 class="font-display text-2xl font-bold">Bicmakh Pharmaceutical</h3>
+              <a href="https://bicmakh.com/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs uppercase tracking-widest text-accent link-underline">Live ↗</a>
+            </div>
+            <p class="mt-2 max-w-xl text-stone-600">A pharma supply-chain system with inventory forecasting, batch tracking and order automation — trimming order cycle time by ~40% and reducing stockouts.</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider text-stone-500">
+              <span class="rounded border border-ink/15 px-2 py-1">Laravel</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Inventory</span>
+              <span class="rounded border border-ink/15 px-2 py-1">MySQL</span>
+            </div>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 md:text-right">Web Platform</span>
+        </li>
+
+        <!-- Project 5 -->
+        <li class="reveal group grid gap-4 py-8 md:grid-cols-[auto_1fr_auto] md:items-baseline md:gap-8">
+          <span class="font-mono text-sm text-stone-500">05</span>
+          <div>
+            <h3 class="font-display text-2xl font-bold">Money Manager</h3>
+            <p class="mt-2 max-w-xl text-stone-600">A polished, offline-first personal-finance app: net worth, income and expenses, debts you owe and are owed, upcoming bills, savings goals and statistics — all stored on device.</p>
+            <div class="mt-3 flex flex-wrap gap-2 font-mono text-[11px] uppercase tracking-wider text-stone-500">
+              <span class="rounded border border-ink/15 px-2 py-1">Flutter</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Dart</span>
+              <span class="rounded border border-ink/15 px-2 py-1">Offline-first</span>
+            </div>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-stone-400 md:text-right">Mobile App</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="scroll-mt-24 border-t border-ink/15 py-20 sm:py-28">
+      <div class="grid gap-12 md:grid-cols-[1fr_1.3fr]">
+        <div class="reveal">
+          <p class="kicker mb-2 font-mono text-xs uppercase text-accent">About</p>
+          <h2 class="font-display text-3xl font-bold leading-tight tracking-tight sm:text-4xl">A developer who ships the whole thing.</h2>
+        </div>
+        <div class="reveal space-y-5 text-lg leading-relaxed text-stone-600">
+          <p>I'm a self-driven full-stack developer based in Addis Ababa. I like owning a product end to end — the Flutter app in someone's hand, the Laravel API behind it, the Filament admin panel a team runs it from, and the deploy on whatever shared host the budget allows.</p>
+          <p>Most of my work lives where correctness matters: money math in integer cents, atomic transactions that can't double-pay, moderation flows built on trust and consensus. I care about the details that don't show up in a screenshot but decide whether software can be relied on.</p>
+          <div class="grid gap-6 pt-4 sm:grid-cols-2">
+            <div class="border-l-2 border-accent pl-4">
+              <p class="font-mono text-[11px] uppercase tracking-widest text-stone-500">Focus</p>
+              <p class="mt-1 font-medium text-ink">Flutter mobile · Laravel back-ends · Telegram Mini Apps</p>
+            </div>
+            <div class="border-l-2 border-accent pl-4">
+              <p class="font-mono text-[11px] uppercase tracking-widest text-stone-500">Education</p>
+              <p class="mt-1 font-medium text-ink">B.Sc. — St Mary's University College</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="scroll-mt-24 border-t border-ink/15 py-20 sm:py-28">
+      <p class="reveal kicker mb-2 font-mono text-xs uppercase text-accent">Toolkit</p>
+      <h2 class="reveal font-display text-3xl font-bold tracking-tight sm:text-4xl">Skills &amp; stack</h2>
+
+      <div class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="reveal">
+          <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink">Mobile</h3>
+          <ul class="space-y-2.5 text-stone-600">
+            <li>Flutter &amp; Dart</li>
+            <li>Cross-platform (Android · iOS · Web)</li>
+            <li>Offline-first &amp; local storage</li>
+            <li>Android (Kotlin / Java)</li>
           </ul>
         </div>
-        <div class="rounded-xl border border-slate-200 p-5">
-          <h3 class="text-xl font-semibold">SDR Performance</h3>
-          <ul class="mt-4 space-y-2 text-slate-700">
-            <li>Lead generation: 12+ qualified prospects/day</li>
-            <li>Meeting conversion: 30%+ SQL rate</li>
-            <li>Pipeline acceleration: technical objections closed quickly</li>
-            <li>Quota attainment: consistent target achievement</li>
+        <div class="reveal">
+          <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink">Backend</h3>
+          <ul class="space-y-2.5 text-stone-600">
+            <li>Laravel &amp; PHP</li>
+            <li>REST APIs &amp; Sanctum auth</li>
+            <li>Livewire &amp; Filament</li>
+            <li>Queues, jobs &amp; scheduling</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="projects" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
-      <p class="text-sm font-semibold text-indigo-600">Browse My Recent</p>
-      <h2 class="mt-2 text-3xl font-bold text-slate-900">Projects</h2>
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <article class="rounded-xl border border-slate-200 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-          <img src="./assets/project-1.png" alt="Arse Inc architecture" class="aspect-video w-full rounded-lg object-cover" />
-          <h3 class="mt-4 text-xl font-semibold text-slate-900">Arse Inc.</h3>
-          <p class="text-sm text-indigo-600">Laravel + React | Payment integrations</p>
-          <p class="mt-3 text-slate-700">Built a ROI-focused platform with 1000+ daily transactions, real-time order tracking, and automated invoice workflows. Reduced processing overhead by 25% in 3 months.</p>
-          <a href="https://arse.parakichner.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Live Demo</a>
-        </article>
-        <article class="rounded-xl border border-slate-200 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-          <img src="./assets/project-2.png" alt="Bicmakh platform" class="aspect-video w-full rounded-lg object-cover" />
-          <h3 class="mt-4 text-xl font-semibold text-slate-900">Bicmakh Pharmaceutical</h3>
-          <p class="text-sm text-indigo-600">Laravel | Inventory management</p>
-          <p class="mt-3 text-slate-700">Delivered a pharma supply chain system with inventory forecasting, batch tracking, and order automation. Cut order cycle time by 40% and decreased stockouts by 18%.</p>
-          <a href="https://bicmakh.com/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700">Live Demo</a>
-        </article>
-      </div>
-      <div class="mt-8 rounded-xl bg-slate-100 p-6">
-        <h3 class="text-lg font-semibold text-slate-900">Impact at a glance</h3>
-        <div class="mt-4 grid gap-4 sm:grid-cols-3">
-          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
-            <p class="text-2xl font-bold text-indigo-600">12+</p>
-            <p class="text-sm text-slate-600">Qualified Leads / day</p>
-          </div>
-          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
-            <p class="text-2xl font-bold text-indigo-600">30%</p>
-            <p class="text-sm text-slate-600">SQL Conversion</p>
-          </div>
-          <div class="rounded-lg bg-white p-4 text-center shadow-sm">
-            <p class="text-2xl font-bold text-indigo-600">3x</p>
-            <p class="text-sm text-slate-600">Pipeline Velocity</p>
-          </div>
+        <div class="reveal">
+          <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink">Data &amp; Platform</h3>
+          <ul class="space-y-2.5 text-stone-600">
+            <li>MySQL / MariaDB &amp; Eloquent</li>
+            <li>Telegram Mini Apps &amp; Bots</li>
+            <li>cPanel / shared-host deploys</li>
+            <li>Git &amp; CI basics</li>
+          </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="mt-10 rounded-2xl bg-white p-6 shadow-sm md:p-10">
-      <p class="text-sm font-semibold text-indigo-600">Get in Touch</p>
-      <h2 class="mt-2 text-3xl font-bold text-slate-900">Contact Me</h2>
-      <div class="mt-6 grid gap-4 sm:grid-cols-2">
-        <div class="rounded-xl border border-slate-200 p-5">
-          <p class="font-semibold text-slate-900">Email</p>
-          <a href="mailto:fuadahmedt@gmail.com" class="text-indigo-600">fuadahmedt@gmail.com</a>
-        </div>
-        <div class="rounded-xl border border-slate-200 p-5">
-          <p class="font-semibold text-slate-900">LinkedIn</p>
-          <a href="https://www.linkedin.com/in/fuad-ahmed745/" target="_blank" rel="noopener noreferrer" class="text-indigo-600">linkedin.com/in/fuad-ahmed745</a>
+        <div class="reveal">
+          <h3 class="mb-4 font-mono text-xs uppercase tracking-widest text-ink">Craft</h3>
+          <ul class="space-y-2.5 text-stone-600">
+            <li>Money-safe integer math</li>
+            <li>Atomic, row-locked flows</li>
+            <li>Tailwind &amp; responsive UI</li>
+            <li>Bilingual (EN / አማርኛ) builds</li>
+          </ul>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white py-6">
-    <div class="mx-auto flex max-w-6xl items-center justify-center gap-6 px-4 text-sm text-slate-600 md:px-6">
-      <a href="#about" class="hover:text-indigo-600">About</a>
-      <a href="#experience" class="hover:text-indigo-600">Experience</a>
-      <a href="#projects" class="hover:text-indigo-600">Projects</a>
-      <a href="#contact" class="hover:text-indigo-600">Contact</a>
+  <!-- Contact -->
+  <section id="contact" class="scroll-mt-24 bg-ink text-paper">
+    <div class="mx-auto max-w-5xl px-5 py-20 sm:px-6 sm:py-28">
+      <p class="reveal kicker mb-3 font-mono text-xs uppercase text-accent">Contact</p>
+      <h2 class="reveal max-w-2xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+        Have something worth building? Let's talk.
+      </h2>
+
+      <div class="reveal mt-12 grid gap-px overflow-hidden rounded-2xl border border-paper/15 bg-paper/10 sm:grid-cols-2">
+        <a href="mailto:fuadahmedt@gmail.com" class="group flex items-center justify-between bg-ink px-6 py-6 transition hover:bg-white/[0.04]">
+          <span>
+            <span class="block font-mono text-[11px] uppercase tracking-widest text-paper/50">Email</span>
+            <span class="mt-1 block text-lg">fuadahmedt@gmail.com</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-paper/40 transition group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+        <a href="https://t.me/fuad761" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-ink px-6 py-6 transition hover:bg-white/[0.04]">
+          <span>
+            <span class="block font-mono text-[11px] uppercase tracking-widest text-paper/50">Telegram</span>
+            <span class="mt-1 block text-lg">@fuad761</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-paper/40 transition group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/fuad-ahmed745/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-ink px-6 py-6 transition hover:bg-white/[0.04]">
+          <span>
+            <span class="block font-mono text-[11px] uppercase tracking-widest text-paper/50">LinkedIn</span>
+            <span class="mt-1 block text-lg">/in/fuad-ahmed745</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-paper/40 transition group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+        <a href="https://github.com/fuad745" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between bg-ink px-6 py-6 transition hover:bg-white/[0.04]">
+          <span>
+            <span class="block font-mono text-[11px] uppercase tracking-widest text-paper/50">GitHub</span>
+            <span class="mt-1 block text-lg">@fuad745</span>
+          </span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="text-paper/40 transition group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+      <p class="mt-14 font-mono text-xs uppercase tracking-widest text-paper/40">
+        © <span id="year">2026</span> Fuad Ahmed · Addis Ababa, Ethiopia
+      </p>
     </div>
-  </footer>
+  </section>
 
   <script>
     function toggleMenu() {
       const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
+      const btn = document.getElementById('menu-btn');
+      const open = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!open));
     }
+    // Scroll reveal
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (e) { e.classList.add('in'); });
+        return;
+      }
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (e) { io.observe(e); });
+    })();
   </script>
 </body>
 
